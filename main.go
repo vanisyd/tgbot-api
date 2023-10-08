@@ -1,14 +1,9 @@
 package main
 
 import (
-	"github.com/vanisyd/tgbot-api/router"
-	"log"
+	"github.com/vanisyd/tgbot-api/bootstrap"
 )
 
 func main() {
-	router.Init()
-
-	if err := router.Router.Run(); err != nil {
-		log.Fatal(err)
-	}
+	bootstrap.Init()
 }

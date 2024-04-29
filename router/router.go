@@ -20,7 +20,12 @@ func Init() {
 			if err != nil {
 				log.Fatal(err)
 			}
-			c.JSON(http.StatusOK, controller.GetActions(userId))
+			data := controller.GetActions(userId)
+			if data != nil && len(data) > 0 {
+				c.JSON(http.StatusOK, data)
+			} else {
+				c.JSON(http.StatusOK, gin.H{})
+			}
 		}
 	})
 }
